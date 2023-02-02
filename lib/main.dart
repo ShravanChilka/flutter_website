@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_website/utils/extensions.dart';
 import 'package:flutter_website/utils/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'helper/responsive.dart';
@@ -65,7 +66,7 @@ class ResponsiveScreen extends StatelessWidget {
       case ScreenSize.small:
         return smallScreenWidget;
       case ScreenSize.medium:
-        return mediumScreenWidget;
+        return const MainScreen();
       case ScreenSize.large:
         return const MainScreen();
     }

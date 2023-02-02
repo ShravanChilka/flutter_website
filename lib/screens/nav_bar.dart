@@ -58,7 +58,9 @@ class NavBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
                 icon: const Icon(Icons.menu),
               ),
               CircleAvatar(
