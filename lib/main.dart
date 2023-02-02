@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_website/utils/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'helper/responsive.dart';
 import 'screens/main_screen.dart';
@@ -17,20 +18,33 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: true,
-        primarySwatch: Colors.blue,
-        brightness: Brightness.dark,
+        primarySwatch: Palette.primary500.toMaterialColor(),
+        textButtonTheme: const TextButtonThemeData(
+          style: ButtonStyle(
+              foregroundColor: MaterialStatePropertyAll(Colors.black)),
+        ),
+        filledButtonTheme: const FilledButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll(Palette.primary500),
+            foregroundColor: MaterialStatePropertyAll(Colors.black),
+            minimumSize: MaterialStatePropertyAll(Size(150, 50)),
+          ),
+        ),
+        iconButtonTheme: const IconButtonThemeData(
+          style: ButtonStyle(
+            minimumSize: MaterialStatePropertyAll(Size(48, 48)),
+          ),
+        ),
         fontFamily: GoogleFonts.poppins().fontFamily,
         textTheme: TextTheme(
-          titleLarge: TextStyle(
-            fontFamily: GoogleFonts.smythe().fontFamily,
-            fontSize: 200,
-            height: 0.8,
-            wordSpacing: 5,
-            letterSpacing: -5,
+          headlineLarge: TextStyle(
+            fontFamily: GoogleFonts.michroma().fontFamily,
+            fontWeight: FontWeight.w900,
+            fontSize: 50,
           ),
         ),
       ),
-      home: const MainScreen(),
+      home: const ResponsiveScreen(),
     );
   }
 }
@@ -42,8 +56,8 @@ Widget mediumScreenWidget =
 Widget largecreenWidget =
     const Scaffold(body: Center(child: Text('Large Screen')));
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class ResponsiveScreen extends StatelessWidget {
+  const ResponsiveScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +67,7 @@ class MyHomePage extends StatelessWidget {
       case ScreenSize.medium:
         return mediumScreenWidget;
       case ScreenSize.large:
-        return largecreenWidget;
+        return const MainScreen();
     }
   }
 }
