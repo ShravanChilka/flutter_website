@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_website/screens/first_page.dart';
-import 'package:flutter_website/screens/nav_bar.dart';
-import 'package:flutter_website/screens/second_page.dart';
+import 'first_page.dart';
+import 'nav_bar.dart';
+import 'second_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils/styles.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
