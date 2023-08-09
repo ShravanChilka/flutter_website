@@ -66,7 +66,7 @@ class ResponsiveScreen extends StatelessWidget {
       case ScreenSize.small:
         return smallScreenWidget;
       case ScreenSize.medium:
-        return const MainScreen();
+        return mediumScreenWidget;
       case ScreenSize.large:
         return const MainScreen();
     }
